@@ -1,0 +1,372 @@
+@font-face {
+    font-family: Jost;
+    src: url(fonts/Jost-Regular.ttf);
+}
+@font-face {
+    font-family: Hind Siliguri;
+    src: url(fonts/HindSiliguri-Regular.ttf);
+}
+:root {
+    --primary: rgb(2, 62, 138);
+    --secondary: rgb(255, 195, 0);
+    --bright: rgb(248, 249, 250);
+    --dark: rgb(33, 37, 41);
+    --light-gray: rgb(222, 226, 230);
+    --dark-gray: rgb(73, 80, 87);
+    --light-bright: rgba(248, 249, 250, 0.8);
+    --light-dark: rgba(33, 37, 41, 0.24);
+}
+::-webkit-scrollbar {
+    width: 8px;
+    overflow-x: none;
+}
+::-webkit-scrollbar-track {
+    margin-block: 4px;
+    border-radius: 50px;
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background: var(--light-gray);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Jost", "Hind Siliguri";
+}
+
+body {
+    background: var(--bright);
+}
+
+/* common style */
+a {
+    font-size: 16px;
+    color: var(--dark-gray);
+}
+p {
+    font-size: 16px;
+    color: var(--dark);
+}
+i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-gray);
+}
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* header style */
+.header {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+    display: flex;
+    align-items: center;
+    background: var(--bright);
+    box-shadow: 0 0 12px var(--light-dark);
+}
+.header .header-left {
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .header-left .logo-wrapper .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+}
+.header .header-left .logo-wrapper .logo span {
+    color: var(--dark);
+}
+.header .header-right {
+    padding-right: 24px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+}
+.header .header-right .nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.header .header-right .nav-menu li a {
+    font-weight: bold;
+    color: var(--dark-gray);
+    transition: 0.4s;
+}
+.header .header-right .nav-menu li a:hover {
+    color: var(--primary);
+}
+.header .header-right .search-container {
+    position: relative;
+}
+.header .header-right .search-container .search-button {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.header .header-right .search-container .search-popup {
+    padding: 12px;
+    width: 240px;
+    position: absolute;
+    top: 52px;
+    right: 0;
+    background: var(--bright);
+    box-shadow: 0 0 12px var(--light-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    display: none;
+}
+.header .header-right .search-container .search-popup.active {
+    display: block;
+}
+.header .header-right .search-container .search-popup .search-box {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    background: var(--light-gray);
+}
+.header .header-right .search-container .search-popup .search-box i {
+    color: var(--primary);
+}
+.header .header-right .search-container .search-popup .search-box input {
+    width: 100%;
+    font-size: 16px;
+    color: var(--dark-gray);
+    background: none;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+/* sidebar style */
+.sidebar-wrapper {
+    padding-top: 60px;
+    height: 100vh;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+}
+.sidebar-wrapper .sidebar {
+    padding: 12px;
+    height: 100%;
+    width: 100%;
+    background: var(--bright);
+    box-shadow: 0 0 12px var(--light-dark);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.sidebar-wrapper .sidebar .sidebar-menu {
+    list-style: none;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a,
+.sidebar-wrapper .sidebar .sidebar-menu li span {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 4px;
+    transition: 0.4s;
+    cursor: pointer;
+    user-select: none;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a:hover,
+.sidebar-wrapper .sidebar .sidebar-menu li span:hover {
+    background: var(--light-gray);
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a .menu-left,
+.sidebar-wrapper .sidebar .sidebar-menu li span .menu-left {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a .menu-left i,
+.sidebar-wrapper .sidebar .sidebar-menu li span .menu-left i {
+    transition: 0.4s;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a:hover .menu-left i,
+.sidebar-wrapper .sidebar .sidebar-menu li span:hover .menu-left i {
+    color: var(--primary);
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a .menu-right,
+.sidebar-wrapper .sidebar .sidebar-menu li span .menu-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a .menu-right .menu-name,
+.sidebar-wrapper .sidebar .sidebar-menu li span .menu-right .menu-name {
+    color: var(--dark-gray);
+    transition: 0.4s;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a:hover .menu-right .menu-name,
+.sidebar-wrapper .sidebar .sidebar-menu li span:hover .menu-right .menu-name {
+    color: var(--primary);
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a .menu-right i,
+.sidebar-wrapper .sidebar .sidebar-menu li span .menu-right i {
+    transition: 0.4s;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li a:hover .menu-right i,
+.sidebar-wrapper .sidebar .sidebar-menu li span:hover .menu-right i {
+    color: var(--primary);
+}
+.sidebar-wrapper .sidebar .sidebar-menu li .sidebar-sub-menu {
+    padding-left: 24px;
+    list-style: none;
+    display: none;
+}
+.sidebar-wrapper .sidebar .sidebar-menu li .sidebar-sub-menu.active {
+    display: block;
+}
+
+/* core style */
+.core {
+    padding: 60px 0 0 240px;
+}
+
+/* container style */
+.core .container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: var(--bright);
+}
+.core .container .post-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.core .container .post-wrapper .post {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+.core .container .post-wrapper .post .post-meta {
+    padding: 8px;
+    display: flex;
+    align-content: start;
+    justify-content: center;
+    gap: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.core .container .post-wrapper .post .post-meta li {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light-bright);
+    border-radius: 8px;
+    cursor: pointer;
+}
+.core .container .post-wrapper .post .post-meta li i {
+    color: var(--primary);
+}
+.core .container .post-wrapper .post .thumbnail-wrapper {
+    height: 240px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.core .container .post-wrapper .post .post-info {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.core .container .post-wrapper .post .post-info .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.core .container .post-wrapper .post .post-info .author-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.core
+    .container
+    .post-wrapper
+    .post
+    .post-info
+    .author-card
+    .card-left
+    .author-picture-wrapper {
+    height: 48px;
+    width: 48px;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.core
+    .container
+    .post-wrapper
+    .post
+    .post-info
+    .author-card
+    .card-right
+    .author-name {
+    color: var(--dark);
+}
+.core
+    .container
+    .post-wrapper
+    .post
+    .post-info
+    .author-card
+    .card-right
+    .author-position {
+    color: var(--dark-gray);
+}
+.core .container .pagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.core .container .pagination li a {
+    padding: 8px 12px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-gray);
+    border-radius: 50px;
+}
+.core .container .pagination li a:hover {
+    color: var(--primary);
+}
